@@ -1,0 +1,16 @@
+/*
+needs a program to work
+once you have it you have to compile de .scss file in the terminal as:
+sass filename.scss:filename.css
+*/
+ul {
+  font-size: 14px;
+  color: pink;
+}
+
+ol {
+  font-size: 18px;
+  color: pink;
+}
+
+/*# sourceMappingURL=variables.css.map */
