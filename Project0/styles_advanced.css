@@ -65,11 +65,11 @@ li a:hover {
     justify-content: space-between;
     align-items: center;
     padding: 10px 10px;
-    min-height: 25px;
+
 }
 
 .column .row input {
-    min-width: 75%;
+    min-width: 60%;
     min-height: 20px;
     padding: 5px 10px;
     border: 1px solid black;
@@ -84,6 +84,10 @@ li a:hover {
     font-size: 15px;
 }
 
+.column .row p {
+    font-size: 15px;
+}
+
 .column .first{
     font-size: 18px;
 }
@@ -94,9 +98,19 @@ li a:hover {
 
 .column2{
 	display: flex;
-	width:30%;
+	width:40%;
 	align-items:flex-start;
 	flex-direction: column;
+}
+
+.column2 .row {
+    font-size: 0; 
+}
+
+.column2 .row p {
+	font-size: 12px;
+	line-height: 12px;
+	color: #334422bb;
 }
 
 .button{
