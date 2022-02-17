@@ -1,0 +1,17 @@
+/*
+SPECIFICITY
+inline > id > class > type
+*/
+h1{
+    color: blue;
+    text-align: center;
+}
+#foo{
+    color: red;
+}
+h2{
+    text-align: center;
+}
+.baz{
+    color: purple;
+}

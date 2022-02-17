@@ -1,0 +1,41 @@
+<!DOCTYPE html> <!-- tells what version of html you're using (in this case html5, latest version) -->
+<html lang="en">
+    <head> <!-- other info of the page the web browser needs to know -->
+        <title>Table</title>
+        <style>
+            table{
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            td, th{
+                border: 1px solid black;
+                padding: 5px;
+            }
+
+        </style>
+    </head>
+    <body> <!-- visible part of the page the user gets to see -->
+        <table>
+            <thead> <!-- table heading-->
+                <tr>
+                    <th>Ocean</th>
+                    <th>Average Depth</th>
+                    <th>Maximum Depth</th>
+                </tr>
+            </thead>
+            <tbody> <!-- body of the table -->
+                <tr> <!-- table row-->
+                    <td>Pacific Ocean</td> <!-- table data cell -->
+                    <td>4,280 m</td>
+                    <td>10,991 m</td>
+                </tr>
+                <tr>
+                    <td>Atlantic Ocean</td>
+                    <td>3,646 m</td>
+                    <td>8,486 m</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+/*
+needs a program to work
+once you have it you have to compile de .scss file in the terminal as:
+sass filename.scss:filename.css
+*/
+$color: pink;
+ul {
+    font-size: 14px;
+    color: $color;
+}
+ol {
+    font-size: 18px;
+    color: $color;
+}
