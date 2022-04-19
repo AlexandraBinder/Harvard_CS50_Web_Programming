@@ -4,13 +4,21 @@ from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 
 
-def list_entries():
+def full_list_entries():
     """
     Returns a list of all names of encyclopedia entries.
     """
     _, filenames = default_storage.listdir("entries")
     return list(sorted(re.sub(r"\.md$", "", filename)
                 for filename in filenames if filename.endswith(".md")))
+
+def list_entries():
+    """
+    Returns a list of all names of encyclopedia entries. Without the ERROR entry
+    """
+    entry_list = full_list_entries()
+    entry_list.remove("ERROR")
+    return entry_list
 
 
 def save_entry(title, content):
@@ -19,9 +27,13 @@ def save_entry(title, content):
     content. If an existing entry with the same title already exists,
     it is replaced.
     """
+    print("ADENTRO SAVE_ENTRY")
     filename = f"entries/{title}.md"
+    print("filename = ", filename)
+    print("default_storage.exists(filename) = ", default_storage.exists(filename))
     if default_storage.exists(filename):
         default_storage.delete(filename)
+    print("ANTES LINEA FINAL")
     default_storage.save(filename, ContentFile(content))
 
 
