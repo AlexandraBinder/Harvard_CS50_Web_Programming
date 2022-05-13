@@ -1,0 +1,51 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div class="index_cont">
+        {% if not user.is_authenticated %}
+            <p>Please login to bid on a listing</p>
+        {% endif %}
+    </div>
+
+    <div class="index_cont">
+        <h2>Active Listings</h2>
+
+        <form action="{% url 'category' %}" method="POST">
+            
+            {% csrf_token %}
+
+            <label>Choose a listing category:</label>
+            <select class="form-group" name="category" onchange='if(this.value != 0) { this.form.submit(); }'>
+                <option selected>Select from menu</option>
+                <option value="Books">Books</option>
+                <option value="Brooms">Brooms</option>
+                <option value="Wands">Wands</option>
+                <option value="Uniforms">Uniforms</option>
+            </select>
+
+        </form>
+        
+        <div class="row">
+
+            {% for listing in active_listings %}
+
+            <div class="card col-sm-3">
+               
+                <div class="card-header">
+                    <p id="bid">Current bid: <span id="price">{{ listing.bid }}</span></p>
+                </div>
+               
+                <img class="card-img" src="{{ listing.url }}" alt="Listing card image">
+               
+                <div class="card-body">
+                    <strong class="card-title">{{ listing.name }}</strong>
+                    <p class="card-text">{{ listing.description }}</p>
+                    <a href="{% url 'display_listing' listing.id %}" class="btn btn-primary">Go to listing</a>
+                </div>
+
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

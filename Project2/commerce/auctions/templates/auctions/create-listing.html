@@ -1,0 +1,51 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <h2>Create listing</h2>
+
+    <form action="{% url 'submit_listing' %}" method="POST">
+        
+        {% csrf_token %}
+
+        <!-- Users should also optionally be able to provide a URL for an image for the listing and/or a category 
+        # (e.g. Fashion, Toys, Electronics, Home, etc.). --> 
+
+        <div class="form-group">
+            <label>Item category</label>
+            <select class="form-select" type="text" name="category">
+                <option selected>Select from menu</option>
+                <option value="Books">Books</option>
+                <option value="Brooms">Brooms</option>
+                <option value="Wands">Wands</option>
+                <option value="Uniforms">Uniforms</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Item name</label>
+            <input class="form-control" type="text" name="name" placeholder="Item name">
+        </div>
+        
+        <div class="form-group">
+            <label>Description</label>
+            <input class="form-control" type="text" name="description" placeholder="Item description">
+        </div>
+
+        <div class="form-group">
+            <label>Starting bid</label>
+            <input class="form-control" type="text" name="starting_bid" placeholder="Starting bid">
+        </div>
+
+        <div class="form-group">
+            <label>Item URL</label>
+            <input class="form-control" type="text" name="url_link" placeholder="Item URL">
+        </div>
+
+        
+        
+        <input class="btn btn-primary" type="submit" value="Submit">
+    
+    </form>
+
+{% endblock %}
